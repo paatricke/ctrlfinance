@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8"/>
+	<title>CTRL Finance</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="shortcut icon" href="imagens/dollar.png" type="image/x-icon" />
+</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div  class="col-sm">
+					<h1 id="titulo"><strong> CTRL Finance </strong></h1>
+				</div>
+				<div class="col-sm">
+					
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container" id="corpo">
+			<div class="row">
+				<div class="mx-auto">
+					<div class="jumbotron">
+						<form class="form-cadastro" id="register" th:action="reset" method="post">
+							<div>
+								<h2>Atualizar Senha</h2>
+							</div>
+							<div class="form-group">
+								<input type="password" name="senha" id="password" class="form-control" placeholder="Senha" />
+								<span id="result"></span>
+							</div>
+							<div class="form-group">
+								<input type="password" name="confirmaSenha" class="form-control"
+								placeholder="Confirme sua senha" />
+							</div>
+							<div>
+								<input type="hidden" name="token" th:value="${param.token[0]}"/>
+							</div>
+							<button type="submit" class="btn btn-primary">Atualizar</button>
+						</form>
+						<h2 th:text="${salvo}"></h2>	
+					</div>
+				</div>
+			</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/validateMessages.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script>
+             $(function(){
+                    $("#form-cadastro").validate();
+             });
+    </script>
+    <script src="js/passwordcheck.js"></script>
+</body>
+</html>

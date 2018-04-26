@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="utf-8"/>
+	<title>CTRL Finance</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="shortcut icon" href="imagens/dollar.ico"/>
+</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div  class="col-sm">
+					<h1 id="titulo"><strong> CTRL Finance </strong></h1>
+				</div>
+				<div class="col-sm">
+					<div class="col-sm">
+						<div class="float-right">
+							<form th:action="@{/logout}" method="post">
+	            				<input type="submit" class="btn btn-primary" value="Sair"/>
+	        				</form>
+	        			</div>
+        			</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div>
+		<div class="container" id="corpo">
+			<div class="row">
+				<div class="col-sm">
+					<div class="jumbotron">
+						<form class="form-despesa" action="salvaDespesa" method="post">
+							<div>
+								<h2>Novo Lançamento</h2>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" 
+								name="nome" placeholder="Digite qual é o lançamento"/>
+							</div>
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">R$</span>
+								</div>
+								<input type="number" min="0" step="0.01" class="form-control"
+								name="valor" placeholder="Valor" />
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="date"
+								name="data"/>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control"
+								name="categoria" placeholder="Categoria" />
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="tipo" name="tipo">
+									<option value="Entrada">Entrada</option>
+									<option value="Saída">Saída</option>
+								</select>
+							</div>
+							<div>
+								<input type="hidden" th:value="${#httpServletRequest.remoteUser}" name="usuario"/>							
+							</div>
+							<button type="submit" class="btn btn-primary">Cadastrar</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm">
+					<div class="jumbotron">
+						<h2>Últimos lançamentos</h2>
+						<h4>
+							<tr th:each="busca,iterStat : ${buscas}" th:if="${iterStat.index} &lt; 6">
+        						<p><td th:text="${busca.nome}" />
+        						R$<td th:text="${busca.valor}" /></p>
+    						</tr>
+						</h4>
+						<div>
+							<a href="/lista">Ver Todos</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

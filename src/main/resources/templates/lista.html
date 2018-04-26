@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>CTRL Finance</title>
+<link rel="stylesheet" type="text/css"
+	href="bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<link rel="shortcut icon" href="imagens/dollar.png" type="image/x-icon" />
+</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<h1 id="titulo">
+						<strong> CTRL Finance </strong>
+					</h1>
+				</div>
+				<div class="col-sm">
+					<div class="col-sm">
+						<div class="float-right">
+							<form th:action="@{/logout}" method="post">
+								<input type="submit" class="btn btn-primary" value="Sair" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container" id="corpo">
+		<div class="row">
+			<div class="mx-auto">
+			<div class="jumbotron">
+				<h2>Lançamentos Cadastrados</h2>
+				<table class="table table-dark">
+					<thead>
+						<tr>
+							<th scope="col">Nome</th>
+							<th scope="col">Valor</th>
+							<th scope="col">Data</th>
+							<th scope="col">Categoria</th>
+							<th scope="col">Tipo</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="busca : ${buscas}">
+							<td th:text="${busca.nome}" />
+							<td th:text="${busca.valor}" />
+							<td th:text="${#dates.format(busca.data, 'dd/MM/yyyy')}" />
+							<td th:text="${busca.categoria}" />
+							<td th:text="${busca.tipo}" />
+							<td><a th:href="@{/apagar/{id}(id=${busca.despesa_id})}">Apagar</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="/principal" class="btn btn-primary">Novo Cadastro</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>		
+	<meta charset="utf-8"/>
+	<title>CTRL Finance</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="shortcut icon" href="imagens/dollar.ico" type="image/x-icon" />
+</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div  class="col-sm">
+					<h1 id="titulo"><strong> CTRL Finance </strong></h1>
+				</div>
+				<div  class="col-sm">
+					<form  id="form-login" method="post">
+						<ul id="lista">
+							<div class="row">		
+								<div class="col">
+									<li>
+										<div class="form-group">
+											<input type="email" name="username" id="emailLogin" 
+											class="form-control" placeholder="Email"/>
+												<div th:if="${param.error}">
+            										<h6>Senha inválida</h6>
+        										</div>
+										</div>
+									</li>
+								</div>
+								<div class="col">
+									<li>
+										<div class="form-group">
+											<input type="password" name="password" id="senhaLogin" 
+											class="form-control" placeholder="Senha" />
+												<div class="senhaRecover">
+												<a href="/recuperaSenha">Esqueci a senha</a>
+												</div>
+										</div>		
+										
+									</li>
+								</div>
+								<div class="col">
+									<li>
+										<div class="row">
+											<div class="col-sm">
+												<button type="submit" 
+												class="btn btn-primary">Entrar</button>
+											</div>
+										</div>
+									</li>
+								</div>
+							</div>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container" id="corpo">
+		
+  		<div class="row">
+    		<div class="col-sm">
+				<div class="jumbotron">
+					<form  class="form-cadastro" id="register" action="salvar" method="post">
+						<div>
+						<h2>Cadastro</h2>
+						</div>
+						<div class="form-group">
+							<input type="text" id="nome" name="nome" class="form-control" 
+									placeholder="Nome" />
+						</div>
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="Email"/>
+						</div>
+						<div class="form-group">
+							<input type="password" name="senha" id="password" class="form-control" placeholder="Senha" />
+							<span id="result"></span>
+						</div>
+						<div class="form-group">
+							<input type="password" name="confirmaSenha" class="form-control"
+								placeholder="Confirme sua senha" />
+						</div>
+						<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</form>
+					
+					<h2 th:text="${mensagem}"></h2>
+					<h2 th:text="${erro}"></h2>
+				</div>
+			</div>
+			<div class="col-sm">
+					<div id="frase">
+						<p>"CTRL Finance é um sistema simples e poderoso onde você pode cadastrar suas despesas e rendimentos para ter controle sobre suas finanças"</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/validateMessages.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script>
+             $(function(){
+                    $("#form-cadastro").validate();
+             });
+    </script>
+    <script>
+             $(function(){
+                    $("#form-login").validate();
+             });
+    </script>
+    <script src="js/passwordcheck.js"></script>
+</body>
+</html>

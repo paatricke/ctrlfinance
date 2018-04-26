@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body{
+
+	background-image: url("/imagens/fundo.png");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+h1 {
+	color: white;
+	font-family: 'Audiowide', cursive;
+	font-size: 370%;
+}
+
+#lista {
+	color: white;
+}
+
+#lista{
+	list-style-type: none;
+	padding-top: 20px;
+}
+
+#corpo{
+	margin-top: 50px;
+}
+
+@media only screen and (max-width: 700px){
+	#header{
+		height: 230px;
+	}
+	#titulo{
+		font-size: 300%;
+	}
+}
+
+@media only screen and (max-width: 1024px){
+	#titulo{
+		font-size: 320%;
+	}
+}
+
+#frase{
+	color: rgb(245,245,245);
+	font-size: 260%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+	font-style: italic;
+	color: black;
+}
+
+h2 {
+	color: white;
+	font-weight: lighter;
+}
+
+h4 {
+	color: white;
+}
+
+header{
+	background-color: rgba(20,20,20,0.6);
+	height: 82px;
+}
+
+.jumbotron{
+	border-radius: 0px;
+	background-color: rgba(10,10,10,0.6);
+}
+
+.form-control{
+	border-radius: 0px;
+}
+.input-group-text{
+	border-radius: 0px;
+}
+
+.btn{
+	border-radius: 0px;
+}
+
+.senhaRecover{
+	text-align: right;
+	font-size: smaller;
+}
+
+.error {
+	color: red;
+}
+
+#register label{
+	margin-right:5px;
+}
+
+
+#register .short{
+	color:red;
+	
+}
+#register .weak{
+	color:red;
+	
+}
+#register .good{
+	color:blue;
+}
+#register .strong{
+	color: limegreen;
+}

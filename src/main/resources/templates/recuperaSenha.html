@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>CTRL Finance</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="shortcut icon" href="imagens/dollar.png" type="image/x-icon" />
+</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div  class="col-sm">
+					<h1 id="titulo"><strong> CTRL Finance </strong></h1>
+				</div>
+				<div class="col-sm">
+					
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container" id="corpo">
+			<div class="row">
+				<div class="mx-auto">
+					<div class="jumbotron">
+						<form action="recupera" method="post">
+							<div>
+								<h2>Recuperar Senha</h2>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="email" 
+								name="email" placeholder="Digite seu e-mail"/>
+							</div>
+							<button type="submit" class="btn btn-primary">Recuperar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="max-auto">
+				<h2 th:text="${enviado}"></h2>				
+			</div>
+	</div>
+</body>
+</html>
